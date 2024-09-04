@@ -4,11 +4,29 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def caesar_encode(text, n):
-    return ""
+    """
+    returns string with letters shifted forward by n
+    """
+    alphabet = alpha*2
+    encodedWord = ""
+    for i in range(len(text)):
+        for j in range(len(alpha)):
+            if text[i] == alpha[j]:
+                encodedWord = encodedWord + alphabet[j+n]
+    return encodedWord
 
 
 def caesar_decode(text, n):
-    return ""
+    """
+    returns string with letters shifted backward by n
+    """
+    alphabet = alpha*2
+    decodedWord = ""
+    for i in range(len(text)):
+        for j in range(len(alpha)):
+            if text[i] == alpha[j]:
+                decodedWord = decodedWord + alphabet[(j+26) - n]
+    return decodedWord
 
 
 test = "HELLOWORLD"
