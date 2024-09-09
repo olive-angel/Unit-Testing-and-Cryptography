@@ -9,6 +9,9 @@ def caesar_encode(text, n):
     """
     alphabet = alpha*2
     encodedWord = ""
+    if text[0] == " " or text == "":
+        return text
+    text = text.upper()
     for i in range(len(text)):
         for j in range(len(alpha)):
             if text[i] == alpha[j]:
@@ -22,6 +25,9 @@ def caesar_decode(text, n):
     """
     alphabet = alpha*2
     decodedWord = ""
+    if text[0] == " " or text == "":
+        return text
+    text = text.upper()
     for i in range(len(text)):
         for j in range(len(alpha)):
             if text[i] == alpha[j]:
