@@ -13,10 +13,10 @@ class TestSubEncode(TestCase):
         self.assertEqual(sub_encode("helloworld", "wjkuxvbmiydtplhzgoncrsaefq"), "MXTTHAHOTU")
 
     def test_sub_encode_with_empty_second_parameter(self):
-        self.assertEqual(sub_encode
+        self.assertEqual(sub_encode("helloworld", ""), "helloworld")
 
     def test_sub_encode_with_empty_first_parameter(self):
-        self.assertEqual(sub_encode
+        self.assertEqual(sub_encode("", "WJKUXVBMIYDTPLHZGONCRSAEFQ"), "")
 
     def test_sub_encode_with_whitespace(self):
-        self.assertEqual(sub_encode
+        self.assertEqual(sub_encode("   ", "WJKUXVBMIYDTPLHZGONCRSAEFQ"), "   ")
