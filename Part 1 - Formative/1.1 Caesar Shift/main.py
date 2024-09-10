@@ -9,7 +9,7 @@ def caesar_encode(text, n):
     """
     alphabet = alpha*2
     encodedWord = ""
-    if text[0] == " " or text == "":
+    if text is None or n is None or text.isspace():
         return text
     text = text.upper()
     for i in range(len(text)):
@@ -25,7 +25,7 @@ def caesar_decode(text, n):
     """
     alphabet = alpha*2
     decodedWord = ""
-    if text[0] == " " or text == "":
+    if text is None or n is None or text.isspace():
         return text
     text = text.upper()
     for i in range(len(text)):
