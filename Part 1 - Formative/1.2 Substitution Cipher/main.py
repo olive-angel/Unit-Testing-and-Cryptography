@@ -4,7 +4,12 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def sub_encode(text, codebet):
+    """
+    take user text and alphabet to return an encoded word
+    """
     encodedWord = ""
+    text = text.upper()
+    codebet = codebet.upper()
     for i in range(len(text)):
         for j in range(len(alpha)):
             if text[i] == alpha[j]:
@@ -13,7 +18,12 @@ def sub_encode(text, codebet):
 
 
 def sub_decode(text, codebet):
+    """
+    take user text and alphabet to return a decoded word
+    """
     decodedWord = ""
+    text = text.upper()
+    codebet = codebet.upper()
     for i in range (len(text)):
         for j in range(len(codebet)):
             if text[i] == codebet[j]:
