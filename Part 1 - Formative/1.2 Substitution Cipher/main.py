@@ -7,9 +7,11 @@ def sub_encode(text, codebet):
     """
     take user text and alphabet to return an encoded word
     """
-    encodedWord = ""
-    if text.isspace() or text is None or codebet is None:
+    if not text.isalpha():
         return text
+    if not codebet.isalpha():
+        return text
+    encodedWord = ""
     text = text.upper()
     codebet = codebet.upper()
     for i in range(len(text)):
@@ -23,9 +25,11 @@ def sub_decode(text, codebet):
     """
     take user text and alphabet to return a decoded word
     """
-    decodedWord = ""
-    if text.isspace() or text is None or codebet is None:
+    if not text.isalpha():
         return text
+    if not codebet.isalpha():
+        return text
+    decodedWord = ""
     text = text.upper()
     codebet = codebet.upper()
     for i in range (len(text)):
