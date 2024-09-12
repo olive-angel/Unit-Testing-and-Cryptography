@@ -5,7 +5,7 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def vig_encode(text, keyword):
   encodedWord = ""
   for i in range(len(text)):
-    encoded = alpha[]
+    encoded = alpha[alpha.find(text[i]) + alpha.find(keyword[i])]
 
 
 def vig_decode(text, keyword):
