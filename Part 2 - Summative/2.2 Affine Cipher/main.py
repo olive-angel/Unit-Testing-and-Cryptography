@@ -20,36 +20,42 @@ def mod_inverse(a, m):
 
 # These are the functions you'll need to write:
 def affine_encode(text, a, b):
-    return ''
+    print(text)
+    encodedWord = ""
+    for i in range(len(text)):
+        for j in range(len(alpha)):
+            if text[i] == alpha[j]:
+                encodedWord = encodedWord + alpha[(a*j+b) % 26]
+    return encodedWord
 
-def affine_decode(text, a, b):
-    return ''
+#def affine_decode(text, a, b):
+    #return ''
 
 test = "HELLOWORLD"
 a = 3
 b = 9
 enc = affine_encode(test, a, b)
-dec = affine_decode(enc, a, b)
+#dec = affine_decode(enc, a, b)
 print(enc)
-print(dec)
+#print(dec)
 # If this worked, dec should be the same as test!
 
 
 
 # PART 2
 # These  are the functions you'll need to write:
-def convert_to_num(ngram):
-    return 0
+#def convert_to_num(ngram):
+    #return 0
 
-def convert_to_text(num, n):
-    return ''
+#def convert_to_text(num, n):
+    #return ''
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
-num = convert_to_num(test)
-answer = convert_to_text(num, l)
-print(num)
-print(answer)
+#num = convert_to_num(test)
+#answer = convert_to_text(num, l)
+#print(num)
+#print(answer)
 # If this worked, answer should be the same as test!
 
 
@@ -57,17 +63,17 @@ print(answer)
 # PART 3
 
 # These are the functions you'll need to write:
-def affine_n_encode(text, n, a, b):
-    return ''
+#def affine_n_encode(text, n, a, b):
+    #return ''
 
-def affine_n_decode(text, n, a, b):
-    return ''
+#def affine_n_decode(text, n, a, b):
+    #return ''
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 n = 5
 a = 347
 b = 1721
-enc = affine_n_encode(test, n, a, b)
-dec = affine_n_decode(enc, n, a, b)
-print(enc, dec)
+#enc = affine_n_encode(test, n, a, b)
+#dec = affine_n_decode(enc, n, a, b)
+#print(enc, dec)
 # If this worked, dec should be the same as test!
