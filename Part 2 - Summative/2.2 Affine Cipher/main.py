@@ -20,24 +20,30 @@ def mod_inverse(a, m):
 
 # These are the functions you'll need to write:
 def affine_encode(text, a, b):
+    """
+    use affine method to return encoded text
+    """
     print(text)
     encodedWord = ""
     for i in range(len(text)):
-        for j in range(len(alpha)):
-            if text[i] == alpha[j]:
-                encodedWord = encodedWord + alpha[(a*j+b) % 26]
+        j = alpha.index(text[i])
+        encodedWord = encodedWord + alpha[(a*j+b) % 26]
     return encodedWord
 
-#def affine_decode(text, a, b):
-    #return ''
+def affine_decode(text, a, b):
+    decodedWord = ""
+    for i in range(len(text)):
+        j= alpha.index(text[i])
+        decodedWord = decodedWord + alpha[(j-b*mod_inverse(a, 26)) % 26]
+    return decodedWord
 
 test = "HELLOWORLD"
 a = 3
 b = 9
 enc = affine_encode(test, a, b)
-#dec = affine_decode(enc, a, b)
+dec = affine_decode(enc, a, b)
 print(enc)
-#print(dec)
+print(dec)
 # If this worked, dec should be the same as test!
 
 
