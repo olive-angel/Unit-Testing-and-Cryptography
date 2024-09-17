@@ -50,17 +50,24 @@ print(dec)
 
 # PART 2
 # These  are the functions you'll need to write:
-#def convert_to_num(ngram):
-    #return 0
+def convert_to_num(ngram):
+    """
+    sum of multipied powered index of increasing powers of 26 by alphabet index of each letter
+    returns a large number gram
+    """
+    num = 0
+    for i in range(len(ngram)):
+        num = num + 26**i*alpha.index(ngram[i])
+    return num
 
-#def convert_to_text(num, n):
-    #return ''
+def convert_to_text(num, n):
+    return ''
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
-#num = convert_to_num(test)
+num = convert_to_num(test)
 #answer = convert_to_text(num, l)
-#print(num)
+print(num)
 #print(answer)
 # If this worked, answer should be the same as test!
 
