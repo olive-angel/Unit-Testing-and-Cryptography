@@ -61,6 +61,10 @@ def convert_to_num(ngram):
     return num
 
 def convert_to_text(num, n):
+    """
+    divide large number gram by taking the remainder of each divisor
+    returns text
+    """
     text = ""
     for i in range(n):
         text = text + alpha[num % 26]
@@ -80,8 +84,13 @@ print(answer)
 # PART 3
 
 # These are the functions you'll need to write:
-#def affine_n_encode(text, n, a, b):
-    #return ''
+def affine_n_encode(text, n, a, b):
+    """
+
+    """
+
+    x = convert_to_num(text)
+    newText =
 
 #def affine_n_decode(text, n, a, b):
     #return ''
