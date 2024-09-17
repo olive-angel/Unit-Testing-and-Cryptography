@@ -34,7 +34,7 @@ def affine_decode(text, a, b):
     decodedWord = ""
     for i in range(len(text)):
         j= alpha.index(text[i])
-        decodedWord = decodedWord + alpha[(j-b*mod_inverse(a, 26)) % 26]
+        decodedWord = decodedWord + alpha[((j-b) % 26 *mod_inverse(a, 26)) % 26]
     return decodedWord
 
 test = "HELLOWORLD"
