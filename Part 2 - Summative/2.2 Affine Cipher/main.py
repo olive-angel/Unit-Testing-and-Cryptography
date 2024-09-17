@@ -61,14 +61,18 @@ def convert_to_num(ngram):
     return num
 
 def convert_to_text(num, n):
-    return ''
+    text = ""
+    for i in range(n):
+        text = text + alpha[num % 26]
+        num = num // 26
+    return text
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
 num = convert_to_num(test)
-#answer = convert_to_text(num, l)
+answer = convert_to_text(num, l)
 print(num)
-#print(answer)
+print(answer)
 # If this worked, answer should be the same as test!
 
 
