@@ -88,9 +88,18 @@ def affine_n_encode(text, n, a, b):
     """
 
     """
+    #divide text
+    previous = 0
+    start = int(len(text)/n)
+    for i in range(n):
+        piece = text[previous:previous+start]
+        print(piece)
+        previous = i+start
+
+    return ''
 
     x = convert_to_num(text)
-    newText =
+    newText = ""
 
 #def affine_n_decode(text, n, a, b):
     #return ''
@@ -99,7 +108,7 @@ test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 n = 5
 a = 347
 b = 1721
-#enc = affine_n_encode(test, n, a, b)
+enc = affine_n_encode(test, n, a, b)
 #dec = affine_n_decode(enc, n, a, b)
 #print(enc, dec)
 # If this worked, dec should be the same as test!
