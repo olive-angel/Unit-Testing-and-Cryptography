@@ -89,17 +89,22 @@ def affine_n_encode(text, n, a, b):
 
     """
     #divide text
+    encodedWord = ""
     previous = 0
+    mod = 26**n
     start = int(len(text)/n)
     for i in range(n):
         piece = text[previous:previous+start]
-        print(piece)
+        # make n gram
+        x = convert_to_num(piece)
+        num = a*x + b % (mod)
+        encodedWord = encodedWord + convert_to_text(num, n)
+
+
         previous = i+start
 
-    return ''
+    return encodedWord
 
-    x = convert_to_num(text)
-    newText = ""
 
 #def affine_n_decode(text, n, a, b):
     #return ''
@@ -109,6 +114,7 @@ n = 5
 a = 347
 b = 1721
 enc = affine_n_encode(test, n, a, b)
+print(enc)
 #dec = affine_n_decode(enc, n, a, b)
 #print(enc, dec)
 # If this worked, dec should be the same as test!
