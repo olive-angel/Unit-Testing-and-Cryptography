@@ -97,10 +97,8 @@ def affine_n_encode(text, n, a, b):
         piece = text[previous:previous+start]
         # make n gram
         x = convert_to_num(piece)
-        num = a*x + b % (mod)
+        num = a*x + b % mod
         encodedWord = encodedWord + convert_to_text(num, n)
-
-
         previous = i+start
 
     return encodedWord
@@ -115,6 +113,8 @@ a = 347
 b = 1721
 enc = affine_n_encode(test, n, a, b)
 print(enc)
+test = affine_n_encode("COOL", 2, 3, 121)
+print(test)
 #dec = affine_n_decode(enc, n, a, b)
 #print(enc, dec)
 # If this worked, dec should be the same as test!
