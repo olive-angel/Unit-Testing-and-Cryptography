@@ -100,12 +100,20 @@ def affine_n_encode(text, n, a, b):
         num = a*x + b % mod
         encodedWord = encodedWord + convert_to_text(num, n)
         previous = i+start
-
     return encodedWord
 
 
-#def affine_n_decode(text, n, a, b):
-    #return ''
+def affine_n_decode(text, n, a, b):
+    decodedWord = ""
+    previous = 0
+    start = int(len(text) / n)
+    for i in range(n):
+        piece = text[previous:previous + start]
+        # make n gram
+
+
+        previous = i + start
+    return decodedWord
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 n = 5
@@ -114,6 +122,8 @@ b = 1721
 enc = affine_n_encode(test, n, a, b)
 print(enc)
 test = affine_n_encode("COOL", 2, 3, 121)
+print(test)
+test = affine_n_decode("COOL", 2, 3, 121)
 print(test)
 #dec = affine_n_decode(enc, n, a, b)
 #print(enc, dec)
