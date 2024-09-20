@@ -112,7 +112,7 @@ def affine_n_decode(text, n, a, b):
     for i in range(n):
         piece = text[previous:previous + start]
         num = convert_to_num(piece)
-        num = num * mod_inverse(n, 26)
+        num = num + (num % 26**n)
         num = (num - b)//a
 
         print(num)
