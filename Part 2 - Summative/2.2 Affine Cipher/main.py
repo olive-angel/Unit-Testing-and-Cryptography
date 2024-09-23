@@ -92,35 +92,32 @@ def affine_n_encode(text, n, a, b):
     encodedWord = ""
     previous = 0
     mod = 26**n
-    start = int(len(text)/n)
+    while len(text) % n == 1:
+        text += "X"
+    start = int(len(text) // n)
     for i in range(n):
         piece = text[previous:previous+start]
-        while len(piece) % n == 1:
-            piece = piece + "X"
         # make n gram
         x = convert_to_num(piece)
-        num = a*x + b % mod
-        encodedWord = encodedWord + convert_to_text(num, n)
-        previous = i+start
+        num = (a*x + b) % mod
+        encodedWord += convert_to_text(num, n)
+        previous += start
     return encodedWord
 
 
 def affine_n_decode(text, n, a, b):
     decodedWord = ""
     previous = 0
-    start = int(len(text) / n)
+    mod = 26**n
+    start = int(len(text) // n)
     for i in range(n):
-        piece = text[previous:previous + start]
-        num = convert_to_num(piece)
-        num = num + (num % 26**n)
-        num = (num - b)//a
-
-        print(num)
-
+        piece = text[previous:previous+start]
         # make n gram
-
-
-        previous = i + start
+        num = (convert_to_num(piece)) - b
+        # subtract b and multiply by inverse
+        x = (mod_inverse(a, 26**n)*num) % mod
+        decodedWord = decodedWord + convert_to_text(x, n)
+        previous += start
     return decodedWord
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
@@ -129,12 +126,12 @@ a = 347
 b = 1721
 enc = affine_n_encode(test, n, a, b)
 print(enc)
-test = affine_n_encode("COOL", 2, 3, 121)
-print(test)
-change = affine_n_decode("XUHN", 2, 3, 121)
+other = affine_n_encode("COOL", 2, 3, 121)
+print(other)
+change = affine_n_decode(other, 2, 3, 121)
 print(change)
 
 dec = affine_n_decode(enc, n, a, b)
 print(dec)
-#print(enc, dec)
+print(enc, dec)
 # If this worked, dec should be the same as test!
