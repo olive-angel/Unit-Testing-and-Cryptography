@@ -94,14 +94,14 @@ def affine_n_encode(text, n, a, b):
     mod = 26**n
     while len(text) % n == 1:
         text += "X"
-    start = int(len(text) // n)
+
     for i in range(n):
-        piece = text[previous:previous+start]
+        piece = text[previous:previous+n+1]
         # make n gram
         x = convert_to_num(piece)
         num = (a*x + b) % mod
         encodedWord += convert_to_text(num, n)
-        previous += start
+        previous += n
     return encodedWord
 
 
@@ -109,15 +109,16 @@ def affine_n_decode(text, n, a, b):
     decodedWord = ""
     previous = 0
     mod = 26**n
-    start = int(len(text) // n)
+
     for i in range(n):
-        piece = text[previous:previous+start]
+        piece = text[previous:previous+n+1]
         # make n gram
         num = (convert_to_num(piece)) - b
         # subtract b and multiply by inverse
         x = (mod_inverse(a, 26**n)*num) % mod
         decodedWord = decodedWord + convert_to_text(x, n)
-        previous += start
+        print(decodedWord)
+        previous += n
     return decodedWord
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
