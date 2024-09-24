@@ -86,7 +86,8 @@ print(answer)
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
     """
-
+     use fancy method to make text into special encoded text
+     there's an error in the splicing somewhere
     """
     #divide text
     encodedWord = ""
@@ -106,6 +107,10 @@ def affine_n_encode(text, n, a, b):
 
 
 def affine_n_decode(text, n, a, b):
+    """
+    use fancy method to make special text into decoded text
+    there's an error in the splicing somewhere
+    """
     decodedWord = ""
     previous = 0
     mod = 26**n
