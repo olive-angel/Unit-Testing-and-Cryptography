@@ -23,6 +23,7 @@ def affine_encode(text, a, b):
     """
     use affine method to return encoded text
     """
+    text = text.upper()
     print(text)
     encodedWord = ""
     for i in range(len(text)):
@@ -31,6 +32,10 @@ def affine_encode(text, a, b):
     return encodedWord
 
 def affine_decode(text, a, b):
+    """
+    use affine method to return decoded text
+    """
+    text = text.upper()
     decodedWord = ""
     for i in range(len(text)):
         j= alpha.index(text[i])
@@ -55,6 +60,7 @@ def convert_to_num(ngram):
     sum of multipied powered index of increasing powers of 26 by alphabet index of each letter
     returns a large number gram
     """
+    ngram = ngram.upper()
     num = 0
     for i in range(len(ngram)):
         num = num + 26**i*alpha.index(ngram[i])
