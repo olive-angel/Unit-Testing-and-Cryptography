@@ -10,7 +10,7 @@ from main import vig_decode
 class TestVigDecode(TestCase):
 
     def test_vig_decode_with_text_and_keyword_lowercase(self):
-        self.assertEqual(
+        self.assertEqual(vig_decode("MLWJNMUDUVGPGJGQCYEIXHGOXVLAXPSSRHGZ", "TEST"), "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG")
 
     def test_vig_decode_with_text_and_keyword_uppercase(self):
-        self.assertEqual(
+        self.assertEqual(vig_decode("mlwjnmuduvgpgjgqcyeixhgoxvlaxpssrhgz", "test"), "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG")

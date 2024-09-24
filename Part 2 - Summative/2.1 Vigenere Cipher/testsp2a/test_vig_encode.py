@@ -7,8 +7,8 @@ from main import vig_encode
 
 class TestVigEncode(TestCase):
 
-    def test_vig_encode_with_text_and_keyword_lowercase(self):
+    def test_vig_encode_with_text_and_keyword_uppercase(self):
         self.assertEqual(vig_encode("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG", "TEST"), "MLWJNMUDUVGPGJGQCYEIXHGOXVLAXPSSRHGZ")
 
-    def test_vig_encode_with_text_and_keyword_uppercase(self):
+    def test_vig_encode_with_text_and_keyword_lowercase(self):
         self.assertEqual(vig_encode("thequickbrownfoxjumpedoverthelazydog", "test"), "MLWJNMUDUVGPGJGQCYEIXHGOXVLAXPSSRHGZ")
