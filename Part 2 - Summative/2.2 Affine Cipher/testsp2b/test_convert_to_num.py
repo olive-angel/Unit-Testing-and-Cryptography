@@ -9,8 +9,8 @@ from main import convert_to_num
 
 class TestConvertToNum(TestCase):
     def test_convert_to_num_with_uppercase_text(self):
-        self.assertEqual(convert_to_num("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG", len("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG")), 218741750267309021256255930435388550208768849997977)
+        self.assertEqual(convert_to_num("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"), 218741750267309021256255930435388550208768849997977)
 
     def test_convert_to_num_with_lowercase_text(self):
-        self.assertEqual(convert_to_num("thequickbrownfoxjumpedoverthelazydog", len("thequickbrownfoxjumpedoverthelazydog")), 218741750267309021256255930435388550208768849997977)
+        self.assertEqual(convert_to_num("thequickbrownfoxjumpedoverthelazydog"), 218741750267309021256255930435388550208768849997977)
 
